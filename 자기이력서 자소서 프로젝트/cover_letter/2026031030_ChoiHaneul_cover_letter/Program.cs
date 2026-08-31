@@ -1,4 +1,4 @@
-﻿namespace _2026031030_GameProject // 그룹이름(카테고리) 범주
+﻿namespace _2026031030_cover_letter // 그룹이름(카테고리) 범주
 {
     internal class Program
     {

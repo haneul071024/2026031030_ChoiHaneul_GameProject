@@ -1,4 +1,4 @@
-namespace GameProject
+namespace cover_letter
 {
     internal static class Program
     {
