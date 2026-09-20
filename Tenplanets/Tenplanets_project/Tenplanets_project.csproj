@@ -24,5 +24,10 @@
 	<!-- resource 폴더의 모든 파일을 실행 폴더로 복사 -->
 
 	<!-- 비어 있는 폴더도 프로젝트에 표시하기 위한 설정 -->
-
-</Project>
+	<ItemGroup>
+		<Content Include="..\resource\**\*">
+			<Link>resource\%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+</Project>	

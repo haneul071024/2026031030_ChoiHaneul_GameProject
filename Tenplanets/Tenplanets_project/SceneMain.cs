@@ -8,7 +8,8 @@ class SceneMain : IDisposable
     // =====================================================
     // 이미지
     // =====================================================
-
+    private G2AudioSound? bgm;
+    private G2AudioSound? successSound;
     // 시작 화면 배경
     private G2Texture? bgStart;
 
@@ -160,6 +161,13 @@ class SceneMain : IDisposable
 
     public void Initialize()
     {
+        if (G2AudioContext.Instance?.Audio != null)
+        {
+            bgm = new G2AudioSound("resource/sound/bgm.wav");
+            successSound = new G2AudioSound("resource/sound/success.wav");
+
+            bgm.Play(true);
+        }
         // -------------------------------------------------
         // 배경 이미지
         // -------------------------------------------------
@@ -408,7 +416,7 @@ class SceneMain : IDisposable
                     isDragging = true;
 
 
-                    // 시작 위치 저장
+                    // 시작 위치 저장 F
                     dragStartX = mouse.X;
                     dragStartY = mouse.Y;
 
@@ -461,6 +469,7 @@ class SceneMain : IDisposable
                     // 선택한 숫자의 합이 10이면
                     if (selectedSum == 10)
                     {
+                        successSound?.Play();
                         // 선택한 행성 삭제
                         RemoveSelectedPlanets();
                     }
